@@ -1,18 +1,16 @@
-# for API communication
-from http.client import responses
 
 import requests
-# for creating graphics
+# For creating visual plots
 import matplotlib.pyplot as plt
-# extension for creeating graphic maps
+# Extension for creating map-based graphics
 from mpl_toolkits.basemap import Basemap
 
-"""function returns the iss location"""
+"""Function that returns the current location of the ISS"""
 def iss_location():
     response = requests.get("http://api.open-notify.org/iss-now.json")
 
-    # if HTTP Status OK
-    # save JSON as a Dictonary in variable
+    # Check if the HTTP status code indicates success
+    # If successful, save the JSON response as a dictionary in the variable
     if response.status_code == 200:
         data = response.json()
         iss_position = data['iss_position']
@@ -20,5 +18,7 @@ def iss_location():
     else:
         return None
 
+
+
 """creates a map"""
-def iss_map():
+#def iss_map():
